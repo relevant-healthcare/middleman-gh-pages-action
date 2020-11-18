@@ -11,7 +11,7 @@ bundle list | grep "middleman ("
 echo 'Building site...'
 bundle exec middleman build
 
-echo 'Add CNAME'
+echo 'Adding CNAME: ${INPUT_CNAME}'
 echo ${INPUT_CNAME} > CNAME
 
 echo 'Publishing site...'
