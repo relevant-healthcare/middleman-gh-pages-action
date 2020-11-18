@@ -11,11 +11,14 @@ bundle list | grep "middleman ("
 echo 'Building site...'
 bundle exec middleman build
 
-echo 'Adding CNAME: ${INPUT_CNAME}'
-echo ${INPUT_CNAME} > CNAME
-
 echo 'Publishing site...'
 cd ${INPUT_BUILD_LOCATION}
+
+echo 'Adding CNAME:'
+echo ${INPUT_CNAME}
+echo ${INPUT_CNAME} > CNAME
+
+
 remote_repo="https://${INPUT_GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_GITHUB_REPOSITORY}.git" && \
 remote_branch=${INPUT_REMOTE_BRANCH}
 git init
